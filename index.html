@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script language="javascript" type="text/javascript" src="toolkit.js"></script>
+</head>
+<body>
+<img src="frame_35.png" width="393" height="741" />
+<canvas id="myCanvas" width="320" height="460" style="border:1px solid #000000; position:absolute; left:42px; top:157px;" />
+<script language="javascript" type="text/javascript">
+// initView("myCanvas");
+var rootView = getRootView("myCanvas");
+
+var backgroundView = new ImageView("bg", 0, 0, 320, 460, "background.jpg");
+backgroundView.setBackgroundColor("#0000FF");
+rootView.addView(backgroundView);
+
+var redView = new View("red", 20, 0, 100, 100);
+redView.setBackgroundColor("#FF0000");
+rootView.addView(redView);
+
+var greenView = new View("green", 0, 50, 50, 50);
+greenView.setBackgroundColor("#00FF00");
+redView.addView(greenView);
+
+var img1 = new ImageView("smiley2", 0, 0, 50, 50, "smiley.png");
+redView.addView(img1);
+
+var textView = new TextView("text", 100, 150, "hello World!");
+rootView.addView(textView);
+
+var smiley = new ImageView("smiley", 50, 200, 50, 50, "smiley.png");
+rootView.addView(smiley);
+
+var button = new ButtonView("btn1", 130, 240, 100, 30, "button");
+button.setClickListener(function() { textView.setText("clicked weirdo!"); });
+rootView.addView(button);
+
+var button2 = new ButtonView("btn2", 130, 300, 100, 30, "button");
+button2.setClickListener(function() { alert("yeah.."); });
+rootView.addView(button2);
+
+
+//addImage("background.jpg");
+</script>
+</body>
+</html>
